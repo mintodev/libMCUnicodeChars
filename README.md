@@ -22,6 +22,6 @@
 - [x] Make replace function.
 
 # License
-Copyright (c) MintoD. All rights reserved.
+Copyright (c) MintoD3v. All rights reserved.
 
 Licensed under the [MIT](https://github.com/MintoD/libMCUnicodeChars/blob/main/LICENSE) license.
