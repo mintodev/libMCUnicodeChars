@@ -1,4 +1,4 @@
-[![PHPStan](https://github.com/MintoD/libMCUnicodeChars/actions/workflows/phpstan.yml/badge.svg)](https://github.com/MintoD/libMCUnicodeChars/actions/workflows/phpstan.yml)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mintodev/libMCUnicodeChars/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mintodev/libMCUnicodeChars/tree/main)
 
 <div align="center">
   <a href="https://github.com/MintoD/libMCUnicodeChars">
