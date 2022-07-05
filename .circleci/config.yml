@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  test:
     docker:
       - image: cimg/php:8.0.20
 
@@ -23,3 +23,34 @@ jobs:
       - run:
           name: PHPStan
           command: ./vendor/bin/phpstan analyse -c phpstan.neon
+  build:
+    docker:
+      - image: cimg/php:8.0.20
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+
+      - run:
+          name: Download ConsoleScript.php
+          command: curl -o ../ConsoleScript.php https://raw.githubusercontent.com/pmmp/DevTools/master/src/ConsoleScript.php
+          
+      - run: mkdir build
+          
+      - run:
+          name: Create a Phar file
+          command: php -dphar.readonly=0 ../ConsoleScript.php --make virion.yml,src --out build/libMCUnicodeChars.phar
+          
+      - store_artifacts:
+          path: build/libMCUnicodeChars.phar
