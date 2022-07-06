@@ -54,3 +54,10 @@ jobs:
           
       - store_artifacts:
           path: build/libMCUnicodeChars.phar
+
+workflows:
+  version: 2
+  test_and_build:
+    jobs:
+      - test
+      - build
